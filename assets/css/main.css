@@ -24,8 +24,8 @@
   --color-black: #000;
   --color-white: #fff;
   --color-gray: #e4e6e5;
+  --color-purple: #ad86c0;
   --color-lime: #cffe1e;
-  --color-purple: #AD86C0;
   --color-red: #CB604A;
 }
 
@@ -37,6 +37,12 @@ html {
 }
 
 *:focus-visible {
-  outline: 2px var(--color-sap-dark) solid;
+  outline: 3px var(--color-lime) solid;
   outline-offset: 3px;
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --spacing-site: 1rem;
+  }
 }

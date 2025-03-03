@@ -1,4 +1,5 @@
 <script setup>
+const settings = await useSettings()
 const localePath = useLocalePath()
 const { y } = useWindowScroll()
 const scrolled = computed(() => y.value > 100)
@@ -7,17 +8,17 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
 </script>
 
 <template>
-  <div :class="['nav flex fixed top-0 left-0 right-0 p-site', { scrolled, compact }]">
+  <header :class="['nav flex fixed top-0 left-0 right-0 p-site', { scrolled, compact }]">
     <div>
-      <NuxtLink to="/">
+      <NuxtLink :to="localePath('/')">
         <SiteLogo class="nav-logo" />
       </NuxtLink>
       <div class="nav-text max-w-[35ch] leading-[1] tracking-[-0.05em] text-balance mt-site transition">
-        Plan de Actuación para la Reactivación del Sector Musical en la Comunitat Valenciana tras la DANA
+        {{ settings?.data.story.content.subtitle }}
       </div>
     </div>
-  </div>
-  <SiteMenu :hide-announcer="scrolled" />
+  </header>
+  <SiteMenu :hide-announcer="scrolled" :settings="settings" />
 </template>
 
 <style lang="scss" scoped>
@@ -40,6 +41,30 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
 
     .nav-text {
       opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .nav {
+    &-logo {
+      width: 100%;
+      height: auto;
+      margin-top: 5rem;
+      transition: width 0.3s ease, margin 0.3s ease;
+    }
+
+    &.compact,
+    &.scrolled {
+      .nav-logo {
+        width: 5rem;
+        height: auto;
+        margin-top: 0;
+      }
+
+      .nav-text {
+        opacity: 0;
+      }
     }
   }
 }

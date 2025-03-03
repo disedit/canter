@@ -1,11 +1,18 @@
 <script setup>
+import { UtilsRichText } from '#components'
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { Vue3Marquee } from 'vue3-marquee'
 
 defineProps({
+  settings: { type: Object, required: true },
   hideAnnouncer: { type: Boolean, default: false }
 })
 
+const { internalLink } = useLinks()
+const { hasRichText } = useUtils()
+
 const menuShown = ref(false)
+const breakpoints = useBreakpoints(breakpointsTailwind)
 
 function toggleMenu () {
   menuShown.value = !menuShown.value
@@ -23,15 +30,14 @@ function onEnter(el, done) {
   $gsap.set('.menu .animate', { y: '105%' })
   timeline = $gsap.timeline()
 
-  timeline
-  .to('.menu-toggle', {
+  timeline.to('.menu-toggle', {
     width: '15em',
     minHeight: '18em',
     duration: .5,
     ease: 'power4.out'
   }).to(el, {
     opacity: 1,
-    height: 'auto',
+    minHeight: '14.5em',
     duration: .5,
     ease: 'power4.out',
   }, "-=.5s").to('.menu .animate', {
@@ -56,10 +62,10 @@ function onLeave (el, done) {
   }).to(el, {
     opacity: 0,
     duration: .4,
-    height: 0,
+    minHeight: 0,
     ease: 'power4.in',
   }, "-=.5s").to('.menu-toggle', {
-    width: '9em',
+    width: breakpoints.greater('md').value ? '9em' : '3em',
     minHeight: '1em',
     duration: .75,
     ease: 'power4.in',
@@ -79,14 +85,21 @@ function onLeaveCancelled() {
 <template>
   <div :class="['fixed top-0 right-0 p-site', { 'announcer-hidden': hideAnnouncer, 'menu-shown': menuShown }]">
     <div class="relative">
-      <div class="menu-toggle bg-black text-white rounded-[2rem] relative text-md z-[1000]">
+      <nav class="menu-toggle flex flex-col bg-black text-white rounded-[2rem] relative text-md z-[1000]">
         <button
           @click="toggleMenu"
-          class="flex items-center justify-between gap-5 px-7 py-2 rounded-[2rem] w-full border-3 border-black cursor-pointer"
+          class="
+            flex items-center justify-between gap-5 px-4 md:px-7 py-2 rounded-[2rem]
+            w-full border-3 border-black cursor-pointer bg-black
+          "
+          aria-controls="menu"
+          :aria-expanded="menuShown ? 'true' : 'false'"
         >
-          Menú
+          <span class="hidden md:block">
+            Menú
+          </span>
 
-          <div class="flex items-center">
+          <div class="ms-auto flex items-center">
             <Icon v-if="!menuShown" name="ri:menu-fill" class="shrink-0" />
             <Icon v-else name="ri:close-large-fill" class="shrink-0" />
           </div>
@@ -98,31 +111,31 @@ function onLeaveCancelled() {
           @leave="onLeave"
           @leave-cancelled="onLeaveCancelled"
         >
-          <div v-if="menuShown" class="menu px-7">
-            <ul>
-              <li class="overflow-clip block">
-                <NuxtLink to="/" class="block animate">Qué es Cànter?</NuxtLink>
+          <div v-if="menuShown" id="menu" class="menu flex flex-col px-7 h-full">
+            <ul aria-label="Menú">
+              <li
+                v-for="item in settings?.data.story.content.menu"
+                :key="item._uid"
+                class="overflow-clip block"
+              >
+                <NuxtLink
+                  :to="internalLink(item.link)"
+                  @click="toggleMenu"
+                  class="block animate text-balance"
+                >
+                  {{ item.label }}
+                </NuxtLink>
               </li>
-              <li class="overflow-clip block">
-                <NuxtLink to="/" class="block animate">Música en directo</NuxtLink>
-              </li>
-              <li class="overflow-clip block">
-                <NuxtLink to="/" class="block animate">Herramientas digitales</NuxtLink>
-              </li>
-              <li class="overflow-clip block">
-                <NuxtLink to="/" class="block animate">Centro de gestión de ayudas</NuxtLink>
-              </li>
-            </ul>   
+            </ul>
+            
+            <SiteLanguage class="mt-auto" />
           </div>
         </Transition>
-      </div>
-      <div class="announcer absolute flex top-0 right-0 overflow-clip z-[900] rounded-full text-md">
+      </nav>
+      <div v-if="hasRichText(settings?.data.story.content.announcement)" class="announcer absolute flex top-0 right-0 overflow-clip z-[900] rounded-full text-md">
         <div class="announcer-text bg-white rounded-full border-3 w-full overflow-clip">
           <Vue3Marquee clone :duration="10" class="px-7 py-2">
-            <span class="mx-10 flex items-center gap-8">
-              <span>146 inscripcions artístiques rebudes</span>
-              <span>Gràcies</span>
-            </span>
+            <UtilsRichText :content="settings?.data.story.content.announcement" class="mx-10 flex items-center gap-8" />
           </Vue3Marquee>
         </div>
       </div>
@@ -132,7 +145,7 @@ function onLeaveCancelled() {
 
 <style lang="scss" scoped>
 .menu {
-  height: 0;
+  min-height: 0;
   overflow: clip;
 
   li {
@@ -162,22 +175,49 @@ function onLeaveCancelled() {
 }
 
 .menu-toggle {
-  width: 9em;
+  width: var(--initial-width, 9em);
   min-height: 1em;
+
+  button {
+    height: 2.5em;
+  }
 }
 
 .announcer {
   width: calc(25rem + 20vi);
   padding-left: calc(1rem + 2vi);
+  height: 2.5em;
 
   &-text {
     transition: transform .6s cubic-bezier(.47,1.64,.41,.8);
+
+    &:deep(a) {
+      text-decoration: underline;
+      color: var(--color-purple);
+    }
   }
 }
 
 .announcer-hidden {
   .announcer-text {
     transform: translateX(100%);
+  }
+}
+
+@media (max-width: 40rem) {
+  .announcer {
+    width: 100vi;
+    padding-left: calc(1rem + 2vi);
+  }
+
+  .menu-toggle {
+    --initial-width: 3em;
+  }
+}
+
+@media (min-width: 40rem) {
+  .menu-toggle {
+    min-width: 9em !important;
   }
 }
 </style>

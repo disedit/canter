@@ -31,9 +31,16 @@ useHead({
   <div class="font-sans">
     <NuxtLoadingIndicator color="#000" />
     <SiteNav />
-    <main class="flex flex-col gap-site p-site pt-navbar">
+    <main class="flex flex-col gap-site p-site pt-navbar min-h-[400vh]">
       <slot />
     </main>
     <SiteFooter />
   </div>
 </template>
+
+<style>
+main {
+  background: url(../assets/images/bg.jpg);
+  background-size: 100%;
+}
+</style>

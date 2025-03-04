@@ -16,9 +16,10 @@
   --spacing-site: 1.5rem;
   --spacing-padder: 2rem;
   --spacing-container: 2000px;
-  --spacing-nav-area: 4rem;
+  --spacing-nav-area: 10rem;
+  --spacing-footer: 7rem;
   --spacing-nav-full: calc(5vb + 10rem);
-  --spacing-fill: calc(100svh - var(--spacing-nav-area));
+  --spacing-fill: calc(100svh - var(--spacing-footer));
   --breakpoint-2xl: 100rem;
   --color-*: initial;
   --color-black: #000;
@@ -71,6 +72,14 @@ html {
 
 .focus-black {
   --focus-color: var(--color-black);
+}
+
+.color-purple {
+  --color: var(--color-purple);
+}
+
+.color-red {
+  --color: var(--color-red);
 }
 
 @media (max-width: 40rem) {

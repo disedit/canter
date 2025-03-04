@@ -5,9 +5,9 @@ defineProps({ blok: Object })
 <template>
   <section class="bg-gray bg-cover" :style="{ backgroundImage: `url(${blok.background.filename})`}">
     <SiteContainer padded>
-      <h2 class="text-xl max-w-[40vh] text-balance leading-[1.15] tracking-tight font-light">{{ blok.heading }}</h2>
+      <h2 class="text-xl max-w-[40ch] text-balance leading-[1.15] tracking-[-0.07em] font-light">{{ blok.heading }}</h2>
 
-      <form :action="blok.action_url" method="post" class="mt-16">
+      <form :action="blok.action_url" method="post" class="mt-16 mb-10">
         <div class="flex">
           <label for="r0c0m1i1" class="sr-only">Email</label>
           <input

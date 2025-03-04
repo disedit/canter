@@ -23,11 +23,19 @@ const renderedContent = computed(() => {
 .rich-text-formatted {
   a {
     text-decoration: underline;
+
+    &:hover {
+      color: var(--color, var(--color-black));
+    }
   }
 
   p {
-    line-height: 1.25;
+    line-height: 1.5;
     hyphens: auto;
+
+    &:not(:last-child) {
+      margin-bottom: .75em;
+    }
   }
 }
 </style>

@@ -31,7 +31,7 @@ useHead({
   <div class="font-sans">
     <NuxtLoadingIndicator color="#000" />
     <SiteNav />
-    <main class="flex flex-col gap-site">
+    <main class="flex flex-col gap-site min-h-fill">
       <slot />
     </main>
     <SiteFooter />

@@ -19,6 +19,7 @@ function toggleMenu () {
 }
 
 /* Menu animations */
+const menuWrapper = ref(null)
 const { $gsap } = useNuxtApp()
 let timeline
 
@@ -30,7 +31,7 @@ function onEnter(el, done) {
   $gsap.set('.menu .animate', { y: '105%' })
   timeline = $gsap.timeline()
 
-  timeline.to('.menu-toggle', {
+  timeline.to(menuWrapper.value, {
     width: '15em',
     minHeight: '18em',
     duration: .5,
@@ -64,7 +65,7 @@ function onLeave (el, done) {
     duration: .4,
     minHeight: 0,
     ease: 'power4.in',
-  }, "-=.5s").to('.menu-toggle', {
+  }, "-=.5s").to(menuWrapper.value, {
     width: breakpoints.greater('md').value ? '9em' : '3em',
     minHeight: '1em',
     duration: .75,
@@ -85,7 +86,12 @@ function onLeaveCancelled() {
 <template>
   <div :class="['fixed top-0 right-0 p-site', { 'announcer-hidden': hideAnnouncer, 'menu-shown': menuShown }]">
     <div class="relative">
-      <nav class="menu-toggle flex flex-col bg-black text-white rounded-[2rem] relative text-md z-[1000]">
+      <nav
+        ref="menuWrapper"
+        class="menu-wrapper flex flex-col bg-black text-white rounded-[2rem] relative text-md z-[1000]"
+        @mouseenter="menuShown = true"
+        @mouseleave="menuShown = false"
+      >
         <button
           @click="toggleMenu"
           class="
@@ -174,7 +180,7 @@ function onLeaveCancelled() {
   }
 }
 
-.menu-toggle {
+.menu-wrapper {
   width: var(--initial-width, 9em);
   min-height: 1em;
 
@@ -210,13 +216,13 @@ function onLeaveCancelled() {
     padding-left: calc(1rem + 2vi);
   }
 
-  .menu-toggle {
+  .menu-wrapper {
     --initial-width: 3em;
   }
 }
 
 @media (min-width: 40rem) {
-  .menu-toggle {
+  .menu-wrapper {
     min-width: 9em !important;
   }
 }

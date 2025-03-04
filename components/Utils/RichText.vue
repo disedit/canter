@@ -22,9 +22,7 @@ const renderedContent = computed(() => {
 <style lang="scss">
 .rich-text-formatted {
   a {
-    &:hover {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
   }
 
   p {

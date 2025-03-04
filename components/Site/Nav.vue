@@ -13,7 +13,7 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
       <NuxtLink :to="localePath('/')">
         <SiteLogo class="nav-logo" />
       </NuxtLink>
-      <div class="nav-text max-w-[35ch] leading-[1] tracking-[-0.05em] text-balance mt-site transition">
+      <div class="nav-text max-w-[35ch] font-light leading-[1] tracking-[-0.05em] text-balance mt-site transition">
         {{ settings?.data.story.content.subtitle }}
       </div>
     </div>

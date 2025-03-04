@@ -17,7 +17,7 @@
   --spacing-padder: 2rem;
   --spacing-container: 2000px;
   --spacing-nav-area: 4rem;
-  --spacing-menu-area: calc(5vh + 7rem);
+  --spacing-nav-full: calc(5vb + 10rem);
   --spacing-fill: calc(100svh - var(--spacing-nav-area));
   --breakpoint-2xl: 100rem;
   --color-*: initial;
@@ -29,6 +29,34 @@
   --color-red: #CB604A;
 }
 
+@font-face {
+  font-family: 'Helvetica';
+  src: local('Helvetica'),
+      url('../fonts/Helvetica.woff2') format('woff2'),
+      url('../fonts/Helvetica.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/Helvetica-Bold.woff2') format('woff2'),
+      url('../fonts/Helvetica-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/Helvetica-Light.woff2') format('woff2'),
+      url('../fonts/Helvetica-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,8 +65,12 @@ html {
 }
 
 *:focus-visible {
-  outline: 3px var(--color-lime) solid;
+  outline: 3px var(--focus-color, var(--color-lime)) solid;
   outline-offset: 3px;
+}
+
+.focus-black {
+  --focus-color: var(--color-black);
 }
 
 @media (max-width: 40rem) {

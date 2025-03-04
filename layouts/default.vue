@@ -6,7 +6,7 @@ const head = useLocaleHead({
 })
 
 useHead({
-  htmlAttrs: { lang: head.value.htmlAttrs.lang, dir: head.value.htmlAttrs.dir, class: 'bg-gray' },
+  htmlAttrs: { lang: head.value.htmlAttrs.lang, dir: head.value.htmlAttrs.dir, class: 'bg-white' },
   meta: [
     { name: 'theme-color', content: '#e4e6e5' },
     { name: 'msapplication-TileColor', content: '#e4e6e5' },
@@ -31,16 +31,9 @@ useHead({
   <div class="font-sans">
     <NuxtLoadingIndicator color="#000" />
     <SiteNav />
-    <main class="flex flex-col gap-site p-site pt-navbar min-h-[400vh]">
+    <main class="flex flex-col gap-site">
       <slot />
     </main>
     <SiteFooter />
   </div>
 </template>
-
-<style>
-main {
-  background: url(../assets/images/bg.jpg);
-  background-size: 100%;
-}
-</style>

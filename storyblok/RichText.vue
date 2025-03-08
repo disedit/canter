@@ -4,6 +4,7 @@ defineProps({ blok: Object })
 
 <template>
   <UtilsRichText
+    v-editable="blok"
     :content="blok.text"
     format
     :class="[`color-${blok.accent_color}`, {

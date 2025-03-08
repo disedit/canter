@@ -13,12 +13,12 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
       <NuxtLink :to="localePath('/')">
         <SiteLogo class="nav-logo" />
       </NuxtLink>
-      <div class="nav-text max-w-[35ch] font-light leading-[1] tracking-[-0.05em] text-balance mt-site transition">
+      <div class="nav-text max-w-[25ch] font-light leading-[1] -tracking-[.1em] text-balance mt-site transition">
         {{ settings?.data.story.content.subtitle }}
       </div>
     </div>
   </header>
-  <SiteMenu :hide-announcer="scrolled" :settings="settings" />
+  <SiteMenu :hide-announcer="scrolled" :compact-announcer="compact" :settings="settings" />
 </template>
 
 <style lang="scss" scoped>
@@ -41,6 +41,7 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
 
     .nav-text {
       opacity: 0;
+      margin-left: 10rem;
     }
   }
 }

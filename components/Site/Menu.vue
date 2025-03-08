@@ -5,7 +5,8 @@ import { Vue3Marquee } from 'vue3-marquee'
 
 defineProps({
   settings: { type: Object, required: true },
-  hideAnnouncer: { type: Boolean, default: false }
+  hideAnnouncer: { type: Boolean, default: false },
+  compactAnnouncer: { type: Boolean, default: false }
 })
 
 const { internalLink } = useLinks()
@@ -84,7 +85,7 @@ function onLeaveCancelled() {
 </script>
 
 <template>
-  <div :class="['fixed top-0 right-0 p-site', { 'announcer-hidden': hideAnnouncer, 'menu-shown': menuShown }]">
+  <div :class="['fixed top-0 right-0 p-site', { 'announcer-hidden': hideAnnouncer, 'compact-announcer': compactAnnouncer, 'menu-shown': menuShown }]">
     <div class="relative">
       <nav
         ref="menuWrapper"
@@ -218,6 +219,10 @@ function onLeaveCancelled() {
 
   .menu-wrapper {
     --initial-width: 3em;
+  }
+
+  .compact-announcer .announcer {
+    width: 70vi;
   }
 }
 

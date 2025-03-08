@@ -3,5 +3,5 @@ defineProps({ blok: Object })
 </script>
 
 <template>
-  <div :style="{ height: blok.height }" />
+  <div v-editable="blok" :style="{ height: blok.height }" />
 </template>

@@ -37,5 +37,9 @@ const renderedContent = computed(() => {
       margin-bottom: .75em;
     }
   }
+
+  &.text-lg p {
+    line-height: 1.3;
+  }
 }
 </style>

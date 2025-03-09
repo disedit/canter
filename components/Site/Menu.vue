@@ -82,6 +82,12 @@ function onEnterCancelled() {
 function onLeaveCancelled() {
   timeline && timeline.kill()
 }
+
+function toggleOnDesktop(value) {
+  if (breakpoints.greater('md').value) {
+    menuShown.value = value
+  }
+}
 </script>
 
 <template>
@@ -90,8 +96,8 @@ function onLeaveCancelled() {
       <nav
         ref="menuWrapper"
         class="menu-wrapper flex flex-col bg-black text-white rounded-[2rem] relative text-md z-[1000]"
-        @mouseenter="menuShown = true"
-        @mouseleave="menuShown = false"
+        @mouseenter="toggleOnDesktop(true)"
+        @mouseleave="toggleOnDesktop(false)"
       >
         <button
           @click="toggleMenu"

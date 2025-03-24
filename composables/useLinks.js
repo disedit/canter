@@ -15,7 +15,7 @@ export const useLinks = () => {
       return cachedUrl.startsWith('/') ? cachedUrl : prefix + cachedUrl + append
     },
     target: (link) => {
-      return link.target
+      return link?.target || '_self'
     }
   }
 }

@@ -5,8 +5,8 @@ defineProps({ blok: Object })
 <template>
   <section
     v-editable="blok"
-    class="bg-gray bg-cover min-h-fill"
-    :style="{ backgroundImage: `url(${blok.background.filename})`}"
+    :class="['bg-gray bg-cover min-h-fill', `bg-shapes-${blok.shapes}`]"
+    :style="{ backgroundImage: blok.background.filename ? `url(${blok.background.filename})` : false }"
   >
     <div class="pt-nav-area p-site max-w-[1000px] mx-auto">
       <h1 class="text-4xl max-w-[40ch] text-balance leading-[.9] -tracking-[.1em] font-light">
@@ -42,5 +42,21 @@ defineProps({ blok: Object })
   a:hover {
     font-weight: bold;
   }
+}
+
+.bg-shapes-purple {
+  background-image: url(../assets/images/purple.svg);
+}
+
+.bg-shapes-red {
+  background-image: url(../assets/images/red.svg);
+}
+
+.bg-shapes-lime {
+  background-image: url(../assets/images/lime.svg);
+}
+
+.bg-shapes-canters {
+  background-image: url(../assets/images/canters.svg);
 }
 </style>

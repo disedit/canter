@@ -41,7 +41,6 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
 
     .nav-text {
       opacity: 0;
-      margin-left: 10rem;
     }
   }
 }

@@ -28,6 +28,7 @@
   --color-purple: #ad86c0;
   --color-lime: #cffe1e;
   --color-red: #CB604A;
+  --shadow-mario: 1rem 1rem 0 var(--color-black);
 }
 
 @font-face {

@@ -24,6 +24,9 @@ defineProps({ blok: Object })
 
 <style lang="scss" scoped>
 .home-projects {
+  background-image: url(../assets/images/home-purple.svg);
+  background-size: cover;
+  background-position: bottom;
   padding-top: calc(36rem + 5vh);
 }
 

@@ -38,6 +38,11 @@ const renderedContent = computed(() => {
     }
   }
 
+  h2 {
+    font-size: var(--text-lg);
+    margin-bottom: .25em;
+  }
+
   &.text-lg p {
     line-height: 1.3;
   }

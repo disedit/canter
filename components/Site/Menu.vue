@@ -91,7 +91,7 @@ function toggleOnDesktop(value) {
 </script>
 
 <template>
-  <div :class="['fixed top-0 right-0 p-site', { 'announcer-hidden': hideAnnouncer, 'compact-announcer': compactAnnouncer, 'menu-shown': menuShown }]">
+  <div :class="['fixed top-0 right-0 p-site z-[1100]', { 'announcer-hidden': hideAnnouncer, 'compact-announcer': compactAnnouncer, 'menu-shown': menuShown }]">
     <div class="relative">
       <nav
         ref="menuWrapper"

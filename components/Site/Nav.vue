@@ -23,6 +23,8 @@ const compact = computed(() => !!route.params?.slug && !route.params?.slug[0]?.i
 
 <style lang="scss" scoped>
 .nav {
+  z-index: 1000;
+
   &-logo {
     height: calc(10rem + 15vb);
     transition: height 0.3s ease;

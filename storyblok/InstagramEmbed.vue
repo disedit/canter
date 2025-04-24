@@ -9,6 +9,10 @@ useHead({
     },
   ],
 })
+
+onMounted(() => {
+  window.instgrm && window.instgrm.Embeds.process()
+})
 </script>
 
 <template>

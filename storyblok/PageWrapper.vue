@@ -5,7 +5,7 @@ defineProps({ blok: Object })
 <template>
   <section
     v-editable="blok"
-    :class="['bg-gray bg-cover min-h-fill', `bg-shapes-${blok.shapes}`]"
+    :class="['bg-gray min-h-fill', `bg-shapes-${blok.shapes}`]"
     :style="{ backgroundImage: blok.background.filename ? `url(${blok.background.filename})` : false }"
   >
     <div class="pt-nav-area p-site max-w-[1000px] mx-auto">

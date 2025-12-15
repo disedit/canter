@@ -2,7 +2,7 @@
 const props = defineProps({ blok: Object })
 const { internalLink } = useLinks()
 const tag = computed(() => {
-  if (props.blok.link) {
+  if (props.blok.link?.url) {
     return resolveComponent('NuxtLink')
   }
   return 'div'

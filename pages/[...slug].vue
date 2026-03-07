@@ -7,10 +7,11 @@ const global = settings?.value?.data?.story?.content
 const { locale } = useI18n()
 const { slug } = useRoute().params
 const version = useEnvironment()
-const story = await useAsyncStoryblok(
+const { story } = await useAsyncStoryblok(
   slug && slug.length > 0 ? slug.join('/') : 'home',
-  { version, language: locale.value }
+  { api: { version }, language: locale.value }
 )
+console.log('Loaded story:', story.value)
 const page = story?.value?.content
 
 if (!story.value) {

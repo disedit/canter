@@ -3,7 +3,7 @@ const settings = await useSettings()
 </script>
 
 <template>
-  <footer class="footer bg-black text-white grid grid-cols-2 gap-site p-site">
+  <footer class="footer bg-gray text-blue grid grid-cols-2 gap-site p-site">
     <div>
       <img
         src="~assets/images/footer_logos.svg"
@@ -20,7 +20,7 @@ const settings = await useSettings()
 <style lang="scss">
 .footer {
   a:hover {
-    color: var(--color-lime);
+    color: var(--color-orange);
   }
 }
 </style>

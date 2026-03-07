@@ -6,7 +6,7 @@ const head = useLocaleHead({
 })
 
 useHead({
-  htmlAttrs: { lang: head.value.htmlAttrs.lang, dir: head.value.htmlAttrs.dir, class: 'bg-white' },
+  htmlAttrs: { lang: head.value.htmlAttrs.lang, dir: head.value.htmlAttrs.dir, class: 'bg-gray' },
   meta: [
     { name: 'theme-color', content: '#e4e6e5' },
     { name: 'msapplication-TileColor', content: '#e4e6e5' },
@@ -28,7 +28,7 @@ useHead({
 </script>
 
 <template>
-  <div class="font-sans">
+  <div class="bg-gray font-sans">
     <NuxtLoadingIndicator color="#000" />
     <SiteNav />
     <main class="flex flex-col gap-site min-h-fill">

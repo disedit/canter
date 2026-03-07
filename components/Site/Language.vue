@@ -35,7 +35,7 @@ const abbrs = {
     }
 
     &:hover {
-      color: var(--color-lime);
+      color: var(--color-orange);
     }
   }
 }

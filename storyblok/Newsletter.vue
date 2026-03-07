@@ -5,7 +5,7 @@ defineProps({ blok: Object })
 <template>
   <section
     v-editable="blok"
-    class="bg-gray bg-cover p-site"
+    class="bg-gray text-blue bg-cover p-site"
     :style="{ backgroundImage: `url(${blok.background.filename})`}"
   >
     <h2 class="text-xl max-w-[20ch] text-balance leading-[1.15] -tracking-[.1em] font-light">{{ blok.heading }}</h2>
@@ -19,7 +19,7 @@ defineProps({ blok: Object })
           type="email"
           placeholder="Email"
           required
-          class="bg-white py-3 px-6 text-lg border-3 w-full max-w-[900px]"
+          class="bg-white py-3 px-6 text-lg border-3 border-blue w-full max-w-[900px] rounded-l-2xl"
         />
         <input type="text" name="a1070279c" tabindex="-1" value="" style="position: absolute; left: -4900px;" aria-hidden="true" id="a1070279c" autocomplete="off"/>
         <input type="email" name="b1070279c" tabindex="-1" value="" style="position: absolute; left: -5000px;" aria-hidden="true" id="b1070279c" autocomplete="off"/>
@@ -27,7 +27,7 @@ defineProps({ blok: Object })
         <input
           type="submit"
           :value="blok.button || 'Subscriure\'s'"
-          class="bg-black text-white text-lg border-3 border-black py-3 px-6 hover:text-lime cursor-pointer focus-black" />
+          class="bg-blue text-white text-lg border-3 rounded-r-2xl border-blue py-3 px-6 hover:text-orange cursor-pointer focus-black" />
       </div>
       <input type="hidden" name="ok_redirect" id="id_redirect" value="https://canter.fevim.org/newsletter">
       <label class="newsletter-privacy-policy mt-4 flex gap-4 text-base items-center">
@@ -45,11 +45,12 @@ defineProps({ blok: Object })
     appearance:none;
     width: 1.5em;
     height: 1.5em;
-    border: 3px var(--color-black) solid;
+    border: 3px var(--color-blue) solid;
     background: var(--color-white);
+    border-radius: .5rem;
 
     &:checked {
-      background: var(--color-black);
+      background: var(--color-blue);
     }
   }
 

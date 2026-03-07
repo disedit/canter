@@ -24,11 +24,9 @@
   --color-*: initial;
   --color-black: #000;
   --color-white: #fff;
-  --color-gray: #e4e6e5;
-  --color-purple: #ad86c0;
-  --color-lime: #cffe1e;
-  --color-red: #CB604A;
-  --shadow-mario: 1rem 1rem 0 var(--color-black);
+  --color-gray: #ebf1e6;
+  --color-orange: #e07760;
+  --color-blue: #3256a2;
 }
 
 @font-face {
@@ -67,7 +65,7 @@ html {
 }
 
 *:focus-visible {
-  outline: 3px var(--focus-color, var(--color-lime)) solid;
+  outline: 3px var(--focus-color, var(--color-orange)) solid;
   outline-offset: 3px;
 }
 
@@ -75,12 +73,31 @@ html {
   --focus-color: var(--color-black);
 }
 
-.color-purple {
-  --color: var(--color-purple);
+.focus-blue {
+  --focus-color: var(--color-blue);
 }
 
-.color-red {
-  --color: var(--color-red);
+.color-orange {
+  --color: var(--color-orange);
+}
+
+.color-blue {
+  --color: var(--color-blue);
+}
+
+.prose {
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 1em;
+
+    &::marker {
+      color: var(--color-orange);
+    }
+  }
 }
 
 @media (max-width: 40rem) {

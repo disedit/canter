@@ -206,7 +206,7 @@ function toggleOnDesktop(value) {
 
     &:deep(a) {
       text-decoration: underline;
-      color: var(--color-purple);
+      color: var(--color-orange);
     }
   }
 }

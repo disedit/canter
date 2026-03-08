@@ -3,10 +3,10 @@ const settings = await useSettings()
 </script>
 
 <template>
-  <footer class="footer bg-gray text-blue grid md:grid-cols-2 gap-14 p-site">
+  <footer class="footer bg-gray text-blue grid md:grid-cols-[1fr_auto] gap-14 p-site">
     <div class="flex flex-col md:flex-row gap-12">
       <div class="flex flex-col gap-2">
-        <h4 class="font-bold text-base">{{ $i18n.locale == 'ca' ? 'Suport principal' : 'Soporte principal' }}</h4>
+        <h4 class="font-bold text-base whitespace-nowrap">{{ $i18n.locale == 'ca' ? 'Suport principal' : 'Soporte principal' }}</h4>
         <div>
           <img
             src="~assets/images/ministerio_cultura.svg"

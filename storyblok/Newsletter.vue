@@ -19,7 +19,7 @@ defineProps({ blok: Object })
           type="email"
           placeholder="Email"
           required
-          class="bg-white py-3 px-6 text-lg border-3 border-blue w-full max-w-[900px] rounded-l-2xl"
+          class="bg-white py-3 px-6 text-lg border-3 border-blue w-full max-w-[900px] rounded-tl-2xl rounded-tr-2xl md:rounded-bl-2xl md:rounded-tr-none"
         />
         <input type="text" name="a1070279c" tabindex="-1" value="" style="position: absolute; left: -4900px;" aria-hidden="true" id="a1070279c" autocomplete="off"/>
         <input type="email" name="b1070279c" tabindex="-1" value="" style="position: absolute; left: -5000px;" aria-hidden="true" id="b1070279c" autocomplete="off"/>
@@ -27,7 +27,7 @@ defineProps({ blok: Object })
         <input
           type="submit"
           :value="blok.button || 'Subscriure\'s'"
-          class="bg-blue text-white text-lg border-3 rounded-r-2xl border-blue py-3 px-6 hover:text-orange cursor-pointer focus-black" />
+          class="bg-blue text-white text-lg border-3 rounded-bl-2xl rounded-br-2xl md:rounded-r-2xl md:rounded-bl-none border-blue py-3 px-6 hover:text-orange cursor-pointer focus-black" />
       </div>
       <input type="hidden" name="ok_redirect" id="id_redirect" value="https://canter.fevim.org/newsletter">
       <label class="newsletter-privacy-policy mt-4 flex gap-4 text-base items-center">

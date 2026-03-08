@@ -14,7 +14,7 @@ const tag = computed(() => {
     :is="tag"
     :to="internalLink(blok.link)"
     v-editable="blok"
-    :class="['bg-white border-3 flex flex-col gap-site', { 'p-site': !blok.edge, 'transition hover:shadow-mario hover:-translate-[1rem]': tag !== 'div' }]"
+    :class="['bg-white border-3 border-blue flex flex-col gap-site', { 'p-site': !blok.edge, 'transition hover:shadow-mario hover:-translate-[1rem]': tag !== 'div' }]"
     :style="blok.style"
   >
     <StoryblokComponent

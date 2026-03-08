@@ -95,7 +95,7 @@ function toggleOnDesktop(value) {
     <div class="relative">
       <nav
         ref="menuWrapper"
-        class="menu-wrapper flex flex-col bg-black text-white rounded-[2rem] relative text-md z-[1000]"
+        class="menu-wrapper flex flex-col bg-blue text-white rounded-[2rem] relative text-md z-[1000]"
         @mouseenter="toggleOnDesktop(true)"
         @mouseleave="toggleOnDesktop(false)"
       >
@@ -103,7 +103,7 @@ function toggleOnDesktop(value) {
           @click="toggleMenu"
           class="
             flex items-center justify-between gap-5 px-4 md:px-7 py-2 rounded-[2rem]
-            w-full border-3 border-black cursor-pointer bg-black
+            w-full border-3 border-blue cursor-pointer bg-blue
           "
           aria-controls="menu"
           :aria-expanded="menuShown ? 'true' : 'false'"
@@ -146,7 +146,7 @@ function toggleOnDesktop(value) {
         </Transition>
       </nav>
       <div v-if="hasRichText(settings?.data.story.content.announcement)" class="announcer absolute flex top-0 right-0 overflow-clip z-[900] rounded-full text-md">
-        <div class="announcer-text bg-white rounded-full border-3 w-full overflow-clip">
+        <div class="announcer-text bg-white rounded-full border-3 border-blue text-blue w-full overflow-clip">
           <Vue3Marquee clone :duration="10" class="px-7 py-2">
             <UtilsRichText :content="settings?.data.story.content.announcement" class="mx-10 flex items-center gap-8" />
           </Vue3Marquee>
@@ -170,7 +170,7 @@ function toggleOnDesktop(value) {
 
     &:hover,
     &:has(+ li:hover) {
-      border-color: var(--color-black);
+      border-color: var(--color-blue);
     }
   }
 
@@ -180,7 +180,7 @@ function toggleOnDesktop(value) {
 
     &:hover {
       background: var(--color-white);
-      color: var(--color-black);
+      color: var(--color-blue);
       padding-left: .5em;
       border-radius: 1rem;
     }

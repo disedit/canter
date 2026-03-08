@@ -3,8 +3,8 @@ defineProps({ blok: Object })
 </script>
 
 <template>
-  <div>
-    <h2 class="text-2xl tracking-right text-blue mb-10">
+  <div class="px-12 md:p-0">
+    <h2 class="text-3xl max-w-[40ch] text-balance leading-[.9] -tracking-[.08em] font-light text-blue mb-10">
       {{ blok.title }}
     </h2>
 

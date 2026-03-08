@@ -8,7 +8,7 @@ defineProps({ blok: Object })
     class="bg-gray min-h-fill"
   >
     <div class="pt-nav-area p-site max-w-[1000px] mx-auto">
-      <h1 class="text-4xl max-w-[40ch] text-balance leading-[.9] -tracking-[.1em] font-light">
+      <h1 class="text-4xl max-w-[40ch] text-balance leading-[.9] -tracking-[.1em] font-light text-blue">
         {{ blok.title }}
       </h1>
 

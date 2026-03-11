@@ -4,7 +4,7 @@
   --font-sans: "Helvetica", sans-serif;
   --text-sm: clamp(0.8rem, 0.09vi + 0.78rem, 0.89rem);
   --text-base: clamp(1rem, 0.17vi + 0.8rem, 1.15rem);
-  --text-md: clamp(1.2rem, 0.30vi + 1.1rem, 1.5rem);
+  --text-md: clamp(1.2rem, 0.3vi + 1.1rem, 1.5rem);
   --text-lg: clamp(1.5rem, 0.55vi + 1.43rem, 2.11rem);
   --text-xl: clamp(1.95rem, 0.86vi + 1.74rem, 2.81rem);
   --text-2xl: clamp(2.44rem, 1.31vi + 2.11rem, 3.75rem);
@@ -30,28 +30,31 @@
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: local('Helvetica'),
-      url('../fonts/Helvetica.woff2') format('woff2'),
-      url('../fonts/Helvetica.woff') format('woff');
+  font-family: "Helvetica";
+  src:
+    local("Helvetica"),
+    url("../fonts/Helvetica.woff2") format("woff2"),
+    url("../fonts/Helvetica.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('../fonts/Helvetica-Bold.woff2') format('woff2'),
-      url('../fonts/Helvetica-Bold.woff') format('woff');
+  font-family: "Helvetica";
+  src:
+    url("../fonts/Helvetica-Bold.woff2") format("woff2"),
+    url("../fonts/Helvetica-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('../fonts/Helvetica-Light.woff2') format('woff2'),
-      url('../fonts/Helvetica-Light.woff') format('woff');
+  font-family: "Helvetica";
+  src:
+    url("../fonts/Helvetica-Light.woff2") format("woff2"),
+    url("../fonts/Helvetica-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -101,6 +104,17 @@ html {
 
   p {
     margin-bottom: 1em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
   }
 }
 

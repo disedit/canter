@@ -5,6 +5,25 @@ const showInfo = ref(false)
 const showInfoDetails = ref(false)
 const isImageTransitioning = ref(false)
 
+function onEscapeKey(event) {
+  if (event.key === 'Escape' && showInfo.value) {
+    closeInfoBox()
+  }
+}
+
+watch(showInfo, (isOpen) => {
+  if (isOpen) {
+    window.addEventListener('keydown', onEscapeKey)
+    return
+  }
+
+  window.removeEventListener('keydown', onEscapeKey)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onEscapeKey)
+})
+
 function getTransitionName(isModalImage = false) {
   if (!isImageTransitioning.value) {
     return 'none'

@@ -9,7 +9,7 @@ const { slug } = useRoute().params
 const version = useEnvironment()
 const { story } = await useAsyncStoryblok(
   slug && slug.length > 0 ? slug.join('/') : 'home',
-  { api: { version }, language: locale.value }
+  { api: { version , language: locale.value } }
 )
 console.log('Loaded story:', story.value)
 const page = story?.value?.content
